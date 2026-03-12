@@ -6,7 +6,7 @@ import pandas as pd
 from algo.qpso import QPSOServerPlacer
 from utils.utils_all import DataUtils
 
-def run_with_settings(placer, n, k, repeat_times=1):
+def run_with_settings(placer, n, k, repeat_times=5):
     fitness_values = []
     for t in range(repeat_times):
         placer.place_server(n, k) # run the server placement algo
@@ -31,7 +31,7 @@ def run_qpso_iter_experiment(data, k=100, swarm_size=30, beta=0.75, mu=0.5):
             swarm_size=swarm_size,
             mu=mu
         ) # initialize the QPSO server placer with the current max_iter
-        fitness_list = run_with_settings(qpso, n, k, repeat_times=1) # run the experiment and get fitness values  
+        fitness_list = run_with_settings(qpso, n, k, repeat_times=5) # run the experiment and get fitness values  
         row = {'max_iter': max_iter} # iteration count for this row
         for i, val in enumerate(fitness_list): 
             row[f'Trial_{i+1}'] = val
