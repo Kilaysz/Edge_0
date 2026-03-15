@@ -17,7 +17,7 @@ def run_with_settings(placer, n, k, repeat_times=5):
 
 def run_qpso_server_count_experiment(data, max_iter=100, swarm_size=30, beta=0.75, mu=0.5):
     n = len(data.base_stations)
-    k_range = list(range(20, 500, 20))
+    k_range = list(range(20, 301, 20))
 
     records = []
     for k in k_range:
