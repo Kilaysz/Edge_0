@@ -1,0 +1,14 @@
+# Ignore dataset files that should not be committed
+dataset/data_all.csv
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+
+# VS Code settings
+.vscode/
