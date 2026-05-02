@@ -1,8 +1,10 @@
+from ast import List
 import logging
 from datetime import datetime
 import numpy as np
 from sklearn.cluster import KMeans
 
+from data.base_station import BaseStation
 from data.edge_server import EdgeServer
 from algo.server_placer import ServerPlacer
 
@@ -11,6 +13,9 @@ class WeightedKMeansServerPlacer(ServerPlacer):
     Weighted K-Means approach for edge server placement
     """
     name = 'WeightedKMeans'
+
+    def __init__(self, base_stations: List[BaseStation], distances: List[List[float]]):
+        super().__init__(base_stations)
 
     def place_server(self, base_station_num, edge_server_num):
         logging.info(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: "

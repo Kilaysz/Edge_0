@@ -12,6 +12,9 @@ class RandomServerPlacer(ServerPlacer):
     """
     name = 'Random'
 
+    def __init__(self, base_stations, distances):
+        super().__init__(base_stations)
+
     def place_server(self, base_station_num, edge_server_num):
         logging.info(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: "
                      f"Start running Random with N={base_station_num}, K={edge_server_num}")

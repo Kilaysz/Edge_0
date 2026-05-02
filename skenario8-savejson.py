@@ -108,9 +108,9 @@ def run_skenario8_with_filtering():
     n = len(filtered_bs)
 
     qpso_params = {
-        'max_iter': 220,
-        'swarm_size': 20,
-        'beta': 0.5,
+        'max_iter': 240,
+        'swarm_size': 10,
+        'beta': 0.6,
         'mu': 0.3
     }
 

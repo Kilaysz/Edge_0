@@ -33,9 +33,9 @@ def run_qpso_trial(base_stations, distances, k, max_iter, swarm_size, beta, mu, 
     return fitness_list, distance_list, workload_var_list
 
 def run_skenario6_comparison():
-    max_iter = 220
-    swarm_size = 20
-    beta = 0.5
+    max_iter = 240
+    swarm_size = 10
+    beta = 0.6
     mu = 0.3
     repeat = 5
     k_list = [20, 40, 60, 80, 100]
@@ -49,7 +49,7 @@ def run_skenario6_comparison():
             if p_filter == 0.0:
                 data = DataUtils('./dataset/bs_all.csv', './dataset/data_all.csv')
             else:
-                data = DataUtilsPotential('./dataset/bs_all.csv', './dataset/data_all.csv', lower_percent=p_filter, upper_percent=1.0)
+                data = DataUtilsPotential('./dataset/bs_all.csv', './dataset/data_all.csv')
 
             bs_used = data.base_stations
             dist_used = data.distances

@@ -15,6 +15,9 @@ class KMeansServerPlacer(ServerPlacer):
     """
     name = 'KMeans'
 
+    def __init__(self, base_stations: List[BaseStation], distances: List[List[float]]):
+        super().__init__(base_stations)
+
     def place_server(self, base_station_num, edge_server_num):
         logging.info(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: "
                      f"Start running K-Means with N={base_station_num}, K={edge_server_num}")

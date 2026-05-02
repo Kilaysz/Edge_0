@@ -112,9 +112,9 @@ def run_skenario7_comparison():
     # Parameters specific to the QPSO algorithm; the others don't require
     # additional tuning parameters here.
     qpso_params = {
-        'max_iter': 220,
-        'swarm_size': 20,
-        'beta': 0.5,
+        'max_iter': 240,
+        'swarm_size': 10,
+        'beta': 0.6,
         'mu': 0.3
     }
 

@@ -12,6 +12,8 @@ class TopKServerPlacer(ServerPlacer):
     Top-K approach for edge server placement
     """
     name = 'TopK'
+    def __init__(self, base_stations: List[BaseStation], distances: List[List[float]]):
+        super().__init__(base_stations)
 
     def place_server(self, base_station_num, edge_server_num):
         logging.info(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: "

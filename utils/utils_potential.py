@@ -36,7 +36,8 @@ def memorize(filename):
 class DataUtilsPotential(object):
     def __init__(self, location_file, user_info_file):
         self.all_base_stations = self.base_station_reader(location_file)
-        self.base_stations = self.user_info_reader(user_info_file)
+        self.all_base_stations = self.user_info_reader(user_info_file)
+        self.base_stations = self.all_base_stations.copy()  # start with all base stations, then filter based on PU
         self.filter_top_pu_base_stations()  # hanya 50% atas yang dipilih
         self.distances = self.distance_between_stations() # calculate distance between base stations, this will be used by server placer to calculate distance between edge server and base station
 

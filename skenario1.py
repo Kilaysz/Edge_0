@@ -16,7 +16,7 @@ def run_with_settings(placer, n, k, repeat_times=5):
     return fitness_values # return the list of fitness values for this setting
 
 # Eksperimen untuk variasi jumlah iterasi
-def run_qpso_iter_experiment(data, k=100, swarm_size=30, beta=0.75, mu=0.5):
+def run_qpso_iter_experiment(data, j, k=100, swarm_size=30, beta=0.75, mu=0.5):
     n = len(data.base_stations)
     iter_range = list(range(20, 301, 20))
     records = []
@@ -39,10 +39,12 @@ def run_qpso_iter_experiment(data, k=100, swarm_size=30, beta=0.75, mu=0.5):
         records.append(row)
 
     df = pd.DataFrame(records)
-    df.to_csv('results/csv/skenario1.csv', index=False)
-    logging.info("Saved to results/csv/skenario1.csv") 
+    df.to_csv(f'results/csv/skenario1_{j}.csv', index=False)
+    logging.info(f"Saved to results/csv/skenario1_{j}.csv") 
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     data = DataUtils('./dataset/bs_all.csv', './dataset/data_all.csv')
-    run_qpso_iter_experiment(data)
+    for i in range(1, 11):
+        logging.info(f"Running experiment {i}")
+        run_qpso_iter_experiment(data, i)

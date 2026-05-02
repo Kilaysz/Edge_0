@@ -6,7 +6,7 @@ import pandas as pd
 from algo.qpso import QPSOServerPlacer
 from utils.utils_all import DataUtils
 
-def run_with_settings(placer, n, k, repeat_times=5):
+def run_with_settings(placer, n, k, repeat_times=1):
     fitness_values = []
     for t in range(repeat_times):
         placer.place_server(n, k)
@@ -15,7 +15,7 @@ def run_with_settings(placer, n, k, repeat_times=5):
         time.sleep(1)
     return fitness_values
 
-def run_qpso_server_count_experiment(data, max_iter=100, swarm_size=30, beta=0.75, mu=0.5):
+def run_qpso_server_count_experiment(data, j, max_iter=100, swarm_size=30, beta=0.75, mu=0.5):
     n = len(data.base_stations)
     k_range = list(range(20, 500, 20))
 
@@ -30,7 +30,7 @@ def run_qpso_server_count_experiment(data, max_iter=100, swarm_size=30, beta=0.7
             swarm_size=swarm_size,
             mu=mu
         )
-        fitness_list = run_with_settings(qpso, n, k, repeat_times=5)
+        fitness_list = run_with_settings(qpso, n, k, repeat_times=1)
         row = {'K': k}
         for i, val in enumerate(fitness_list):
             row[f'Trial_{i+1}'] = val
@@ -38,10 +38,12 @@ def run_qpso_server_count_experiment(data, max_iter=100, swarm_size=30, beta=0.7
         records.append(row)
 
     df = pd.DataFrame(records)
-    df.to_csv('results/csv/skenario5.csv', index=False)
-    logging.info("Saved to results/csv/skenario5.csv")
+    df.to_csv(f'results/csv/skenario5_{j}.csv', index=False)
+    logging.info(f"Saved to results/csv/skenario5_{j}.csv")
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     data = DataUtils('./dataset/bs_all.csv', './dataset/data_all.csv')
-    run_qpso_server_count_experiment(data)
+    for i in range(1, 11):
+        logging.info(f"Running experiment {i}")
+        run_qpso_server_count_experiment(data, i)
