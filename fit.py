@@ -13,7 +13,9 @@ scenario_configs = {
     1: {'title': 'Scenario 1: Effect of Iterations', 'x_label': 'Number of Iterations', 'color': '#1f77b4', 'filename': 'scenario1_iterations.png'},
     2: {'title': 'Scenario 2: Effect of Swarm Size', 'x_label': 'Swarm Size (M)', 'color': '#ff7f0e', 'filename': 'scenario2_swarmsize.png'},
     3: {'title': 'Scenario 3: Effect of Beta (β)', 'x_label': 'Contraction Expansion Coefficient (β)', 'color': '#2ca02c', 'filename': 'scenario3_beta.png'},
-    4: {'title': 'Scenario 4: Effect of Mu (μ)', 'x_label': 'Weight Parameter (μ)', 'color': '#d62728', 'filename': 'scenario4_mu.png'}
+    4: {'title': 'Scenario 4: Effect of Mu (μ)', 'x_label': 'Weight Parameter (μ)', 'color': '#d62728', 'filename': 'scenario4_mu.png'},
+    5: {'title': 'Scenario 5: Effect of Server Count', 'x_label': 'Number of Servers (K)', 'color': '#9467bd', 'filename': 'scenario5_servercount.png'}
+
 }
 
 # 2. Loop through the 4 Scenarios individually
